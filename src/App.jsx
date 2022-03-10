@@ -10,7 +10,6 @@ import Select from "./components/Form/Select";
 import Radio from "./components/Form/Radio";
 
 const initialData = {
-  status:"Finalizada",
   address: {
     zipcode: "01153-000",
   }
@@ -31,7 +30,6 @@ function App() {
   const formRef = useRef(null);
  
   async function getAddressByZipcode(){
-    //let zipcode = formRef.current.getFieldValue("zipcode");
     let zipcode = formRef.current.getData().address.zipcode;
     if (zipcode.length===9) {
       console.log('ok=', zipcode)
@@ -49,16 +47,11 @@ function App() {
         name: Yup.string().required("O nome é obrigatório"),
         date: Yup.string().required("A data é obrigatório"),
         hour: Yup.string().required("A hora é obrigatório"),
-        //status:  Yup.string().required("O status é obrigatório"),
-        // status:  Yup.object().shape({
-        //    label: Yup.string().required(),
-        //    value: Yup.string().required()
-        //  }),
-        // status:  Yup.bool().oneOf([true], "Must agree to something"),
+        status:  Yup.string().required("O status é obrigatório"),
         friendlyForces: Yup.string().required("Informe uma opção").nullable(),
         address: Yup.object().shape({
           zipcode: Yup.string().required("CEP é obrigatório"),
-          city: Yup.string().required("Cidade é obrigatório"),
+          city: Yup.string().required("Cidade é obrigatório").max(9),
           state: Yup.string().required("Estado é obrigatório"),
           street: Yup.string().required("Rua é obrigatório"),
           neighborhood: Yup.string().required("Bairro é obrigatório"),
@@ -98,6 +91,7 @@ function App() {
         </div>
         <div className="container-input input-select">
           <Select
+              className="my-select"
               name="status"
               label="Status"
               options={optionsSelect}
@@ -107,25 +101,7 @@ function App() {
                   {option.label}
                 </option>
               ))}
-      </Select>
-          {/* <Select
-            placeholder="Selecione o status"
-            label="Status" 
-            name="status"
-            options={optionsSelect}
-          >
-            {optionsSelect.map(option => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </Select> */}
-          {/* <Select name="status" label="Status" options={optionsSelect}>
-            {optionsSelect.map(option => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}</Select> */}
+          </Select>
         </div>
         <div className="container-radio container-input">
           <Radio

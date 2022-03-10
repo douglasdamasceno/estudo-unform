@@ -19,7 +19,7 @@ export default function Input({ name, label, ...rest }) {
         <>
             <h3 className="label">{label}</h3> 
             <input  ref={inputRef} defaultValue={defaultValue} {...rest} />
-            {error && <span style={{ color: "red", paddingBottom:40, margin:5 }}>{error}</span>}
+            {error && <span className="error" style={{paddingBottom:40, margin:5 }}>{error}</span>}
         </>
   )
 }

@@ -39,7 +39,7 @@ export default function Radio({ name, options }) {
           <span className="input-radio-span" >{option.label}</span>
         </label>
       ))}
-      {error && <span  style={{ color: "red"}}>{error}</span>}
+      {error && <span className="error">{error}</span>}
     </>
   );
 }

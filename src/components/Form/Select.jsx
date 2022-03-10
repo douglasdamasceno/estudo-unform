@@ -61,8 +61,8 @@ export default function Select({ name, label, children, ...rest }) {
   }, [fieldName, registerField])
 
   return (
-    <div>
-      <label htmlFor={fieldName}>{label}</label>
+    <>
+      <label className="label-select" htmlFor={fieldName}>{label}</label>
 
       <select
         id={fieldName}
@@ -74,6 +74,6 @@ export default function Select({ name, label, children, ...rest }) {
       </select>
 
       {error && <span className="error">{error}</span>}
-    </div>
+    </>
   )
 }
