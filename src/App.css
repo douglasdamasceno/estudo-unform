@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ececec;
+}
+
+.label {
+  font-family: OpenSans, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.label-select {
+  font-family: OpenSans, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+
+.btn-primary {
+  align-self: center;
+  margin-left: 32px;
+  background: #008442;
+  width: 89px;
+  height: 40px;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  grid-area: btn;
+}
+.my-input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(17, 7, 105, 0.1);
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 54px;
+  height: 100%;
+  background-color: #fff;
+  font-family: OpenSans, Arial, Helvetica, sans-serif;
+  width: 1200px;
+  padding: 20;
+  margin: 0 auto;
+}
+.container-input {
+  height: 40px;
+  width: 22.5rem;
+  margin-bottom: 52px;
+  margin-left: 32px;
+}
+.my-form {
+  display: grid;
+  grid-template:
+    "name  select  radio"
+    "date  hours hours"
+    "zipcode  state state"
+    "city  neighborhood neighborhood"
+    "street street-number street-number"
+    "complement complement complement"
+    "btn btn btn";
+}
+
+.title-page {
+  font-size: 24px;
+  margin-bottom: 38px;
+  margin-left: 30px;
+  line-height: 24px;
+}
+.my-select {
+  width: 170px;
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+}
+
+.container-radio {
+  grid-area: radio;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.input-radio {
+  height: 40px;
+  margin-top: 16px;
+  color: #2a324e;
+}
+
+.input-radio-span {
+  padding-left: 15px;
+}
+.input-name {
+  grid-area: name;
+}
+.input-select {
+  grid-area: select;
+}
+.input-date {
+  grid-area: date;
+  padding: 8px;
+  width: 168px;
+  height: 40px;
+  top: 128px;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 7, 105, 0.1);
+}
+.input-hours {
+  grid-area: hours;
+  width: 80px;
+  height: 40px;
+  left: 192px;
+  top: 128px;
+  padding: 3px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+.input-zipcode {
+  grid-area: zipcode;
+}
+.input-state {
+  grid-area: state;
+}
+.input-city {
+  grid-area: city;
+}
+.input-neighborhood {
+  grid-area: neighborhood;
+}
+.input-street {
+  grid-area: street;
+}
+.input-street-number {
+  grid-area: street-number;
+}
+.input-complement {
+  grid-area: complement;
+}
+@media (max-width: 720px) {
+  .my-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-bottom: 30px;
+  }
+}
