@@ -35,9 +35,16 @@ function App() {
       console.log('ok=', zipcode)
       fetch(`https://api.pagar.me/1/zipcodes/${zipcode}`)
         .then(response => response.json())
-        .then(data => formRef.current.setData({
-          address: data
-        }));
+        .then(data => {
+          if(data!==undefined) {
+          
+            formRef.current.setData({
+              address: data
+            })
+          }
+        }
+          
+        );
     }
   }
 
@@ -47,17 +54,17 @@ function App() {
         name: Yup.string().required("O nome é obrigatório"),
         date: Yup.string().required("A data é obrigatório"),
         hour: Yup.string().required("A hora é obrigatório"),
-        status:  Yup.string().required("O status é obrigatório"),
-        friendlyForces: Yup.string().required("Informe uma opção").nullable(),
-        address: Yup.object().shape({
-          zipcode: Yup.string().required("CEP é obrigatório"),
-          city: Yup.string().required("Cidade é obrigatório").max(9),
-          state: Yup.string().required("Estado é obrigatório"),
-          street: Yup.string().required("Rua é obrigatório"),
-          neighborhood: Yup.string().required("Bairro é obrigatório"),
-          streetNumber: Yup.string().required("Número é obrigatório"),
-          complement: Yup.string().required("Complemento é obrigatório"),
-        })
+        // status:  Yup.string().required("O status é obrigatório"),
+        // friendlyForces: Yup.string().required("Informe uma opção").nullable(),
+        // address: Yup.object().shape({
+        //   zipcode: Yup.string().required("CEP é obrigatório"),
+        //   city: Yup.string().required("Cidade é obrigatório").max(9),
+        //   state: Yup.string().required("Estado é obrigatório"),
+        //   street: Yup.string().required("Rua é obrigatório"),
+        //   neighborhood: Yup.string().required("Bairro é obrigatório"),
+        //   streetNumber: Yup.string().required("Número é obrigatório"),
+        //   complement: Yup.string().required("Complemento é obrigatório"),
+        // })
       });
 
       await schema.validate(data, {
@@ -81,7 +88,7 @@ function App() {
   return (
     <div className="container">
       <h3 className="title-page">Cadastrar Operação</h3>
-      <Form ref={formRef} className="my-form" initialData={initialData} onSubmit={handleSubmit}>
+      <Form ref={formRef} className="my-form" initialData={initialData}  onSubmit={handleSubmit}>
         <div className="container-input input-name">
           <Input
             className="my-input"
@@ -130,19 +137,18 @@ function App() {
         </div>
         
         
-        <div>
-          
-        </div>
+        
         <Scope path="address">
           <div className="container-input input-zipcode">
             <Input
-              //tag={InputMask}
-              mask={"99999-999"}
+              //mask="99999-999"
+              pattern="[0-9]{5}-[0-9]{3}"
               label="CEP"
               className="my-input"
               onChange={() => getAddressByZipcode()}
               name="zipcode"
-              />
+            />
+              
           </div>
            <div className="container-input input-state">
             <Input
