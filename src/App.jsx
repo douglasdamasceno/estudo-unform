@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { Form } from "@unform/web";
 import { Scope } from "@unform/core";
 import * as Yup from "yup";
-// import InputMask from 'react-input-mask';
 import "./App.css"
 
 import Input from "./components/Form/Input";
@@ -10,11 +9,6 @@ import InputMask from "./components/Form/InputMask";
 import Select from "./components/Form/Select";
 import Radio from "./components/Form/Radio";
 
-const initialData = {
-  address: {
-    zipcode: "01153-000",
-  }
-}
 
 const optionsSelect = [
   { value: "Finalizada", label: "Finalizada" },
@@ -37,9 +31,18 @@ function App() {
       fetch(`https://api.pagar.me/1/zipcodes/${zipcode}`)
         .then(response => response.json())
         .then(data => {
-          if (data !== undefined) {
+          if (data !== undefined && !data.errors) {
+            console.log(data)
+            const { state, neighborhood, street, city } = data;
             formRef.current.setData({
-              address: data
+              address: //data
+              {
+                zipcode,
+                state,
+                neighborhood,
+                street,
+                city
+              }
             })
           }
         }
@@ -87,7 +90,7 @@ function App() {
   return (
     <div className="container">
       <h3 className="title-page">Cadastrar Operação</h3>
-      <Form ref={formRef} className="my-form" initialData={initialData} onSubmit={handleSubmit}>
+      <Form ref={formRef} className="my-form" onSubmit={handleSubmit}>
         <div className="container-input input-name">
           <Input
             className="my-input"
