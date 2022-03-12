@@ -32,10 +32,9 @@ function App() {
         .then(response => response.json())
         .then(data => {
           if (data !== undefined && !data.errors) {
-            console.log(data)
             const { state, neighborhood, street, city } = data;
             formRef.current.setData({
-              address: //data
+              address:
               {
                 zipcode,
                 state,
@@ -131,10 +130,10 @@ function App() {
           />
         </div>
         <div className="container-input">
-          <Input
+          <InputMask
             mask='99:99'
             className="input-hours"
-            type="time"
+            //type="time"
             label="Hora"
             name="hour"
           />
@@ -146,7 +145,7 @@ function App() {
               mask='99999-999'
               label="CEP"
               className="my-input"
-              onChange={(e) => getAddressByZipcode()}
+              onBlur={() => getAddressByZipcode()}
               name="zipcode"
             />
           </div>

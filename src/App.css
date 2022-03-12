@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: OpenSans, Arial, Helvetica, sans-serif;
 }
 body {
   background-color: #ececec;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 .error {
   color: #f00;
@@ -13,13 +13,11 @@ body {
 .label {
   font-family: OpenSans, Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  font-weight: normal;
 }
 .label-select {
-  font-weight: bold;
   font-family: OpenSans, Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 24px;
   margin-bottom: 4px;
 }
 .my-select {
@@ -30,7 +28,6 @@ body {
 }
 
 .btn-primary {
-  align-self: center;
   margin-left: 32px;
   background: #008442;
   width: 89px;
@@ -39,7 +36,7 @@ body {
   color: #fff;
   border: none;
   grid-area: btn;
-  font-size: 16px
+  font-size: 16px;
 }
 .my-input {
   height: 100%;
@@ -52,20 +49,18 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  flex: auto;
   padding: 54px;
   height: 100%;
   background-color: #fff;
-  font-family: OpenSans, Arial, Helvetica, sans-serif;
   width: 1200px;
-  padding: 20;
   margin: 0 auto;
+  border-radius: 6px;
 }
-.container-input {
-  height: 40px;
-  width: 22.5rem;
-  margin-bottom: 52px;
-  margin-left: 32px;
+.title-page {
+  font-size: 24px;
+  margin-bottom: 38px;
+  margin-left: 30px;
+  line-height: 24px;
 }
 .my-form {
   display: grid;
@@ -78,14 +73,12 @@ body {
     "complement complement complement"
     "btn btn btn";
 }
-
-.title-page {
-  font-size: 24px;
-  margin-bottom: 38px;
-  margin-left: 30px;
-  line-height: 24px;
+.container-input {
+  height: 40px;
+  width: 22.5rem;
+  margin-bottom: 52px;
+  margin-left: 32px;
 }
-
 .container-radio {
   grid-area: radio;
   display: flex;
@@ -93,13 +86,11 @@ body {
   justify-content: center;
   align-items: start;
 }
-
 .input-radio {
   height: 40px;
   margin-top: 16px;
   color: #2a324e;
 }
-
 .input-radio-span {
   padding-left: 15px;
 }
