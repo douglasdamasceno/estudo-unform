@@ -33,16 +33,20 @@ function App() {
         .then(data => {
           if (data !== undefined && !data.errors) {
             const { state, neighborhood, street, city } = data;
-            formRef.current.setData({
-              address:
-              {
-                zipcode,
-                state,
-                neighborhood,
-                street,
-                city
-              }
-            })
+            formRef.current.setFieldValue('address.state', state);
+            formRef.current.setFieldValue('address.neighborhood', neighborhood);
+            formRef.current.setFieldValue('address.street', street);
+            formRef.current.setFieldValue('address.city', city);
+            // formRef.current.setData({
+            //   address:
+            //   {
+            //     zipcode,
+            //     state,
+            //     neighborhood,
+            //     street,
+            //     city
+            //   }
+            // })
           }
         }
         );
