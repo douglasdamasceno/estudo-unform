@@ -26,7 +26,6 @@ function App() {
 
   async function getAddressByZipcode() {
     let zipcode = formRef.current.getData().address.zipcode;
-
     if (zipcode.match("[0-9]{5}-[0-9]{3}") !== null) {
       fetch(`https://api.pagar.me/1/zipcodes/${zipcode}`)
         .then(response => response.json())
@@ -37,22 +36,11 @@ function App() {
             formRef.current.setFieldValue('address.neighborhood', neighborhood);
             formRef.current.setFieldValue('address.street', street);
             formRef.current.setFieldValue('address.city', city);
-            // formRef.current.setData({
-            //   address:
-            //   {
-            //     zipcode,
-            //     state,
-            //     neighborhood,
-            //     street,
-            //     city
-            //   }
-            // })
           }
         }
-        );
+      );
     }
   }
-
   async function handleSubmit(data, { reset }) {
     try {
       const schema = Yup.object().shape({
@@ -71,7 +59,6 @@ function App() {
           complement: Yup.string().required("Complemento é obrigatório"),
         })
       });
-
       await schema.validate(data, {
         abortEarly: false,
       });
@@ -122,7 +109,6 @@ function App() {
             options={optionsRadio}
           />
         </div>
-
         <div className="container-input">
           <Input
             mask='99/99/9999'
@@ -142,7 +128,6 @@ function App() {
             name="hour"
           />
         </div>
-
         <Scope path="address">
           <div className="container-input input-zipcode">
             <InputMask
@@ -196,7 +181,6 @@ function App() {
             />
           </div>
         </Scope>
-
         <button className="btn-primary" type="submit">Salvar</button>
       </Form>
     </div>

@@ -1,0 +1,17 @@
+.map-input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(17, 7, 105, 0.1);
+  border-radius: 6px;
+  margin-top: 5px;
+}
+.container-input-map {
+  position: absolute;
+  top: 140px;
+  left: 400px;
+  height: 40px;
+  width: 22.5rem;
+  margin-bottom: 52px;
+  margin-left: 32px;
+  z-index: 1;
+}
