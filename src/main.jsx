@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import Map from './Map'
+import FormApp from './pages/FormApp'
+import Map from './pages/Map'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Map />
   </React.StrictMode>,
   document.getElementById('root')
 )

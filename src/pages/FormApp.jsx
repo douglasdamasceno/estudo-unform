@@ -2,12 +2,12 @@ import { useRef } from "react";
 import { Form } from "@unform/web";
 import { Scope } from "@unform/core";
 import * as Yup from "yup";
-import "./App.css"
+import "../App.css"
 
-import Input from "./components/Form/Input";
-import InputMask from "./components/Form/InputMask";
-import Select from "./components/Form/Select";
-import Radio from "./components/Form/Radio";
+import Input from "../components/Form/Input";
+import InputMask from "../components/Form/InputMask";
+import Select from "../components/Form/Select";
+import Radio from "../components/Form/Radio";
 
 
 const optionsSelect = [
@@ -20,7 +20,7 @@ const optionsRadio = [
 ];
 
 
-function App() {
+function FormApp() {
 
   const formRef = useRef(null);
 
@@ -187,4 +187,4 @@ function App() {
   )
 }
 
-export default App
+export default FormApp
